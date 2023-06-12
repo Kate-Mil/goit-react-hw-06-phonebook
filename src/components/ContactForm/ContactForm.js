@@ -31,7 +31,7 @@ const ContactForm = () => {
     const preCheck = contacts.some(
       contacts =>
         contacts.name.toLowerCase() === name.toLowerCase() ||
-        contacts.numner === number
+        contacts.number === number
     );
 
     if (preCheck) {

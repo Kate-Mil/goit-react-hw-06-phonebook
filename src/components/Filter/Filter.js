@@ -1,11 +1,18 @@
 import css from './Filter.module.css';
-export default function Filer({ value, onChange }) {
+import { useDispatch } from 'react-redux';
+import { changeFilter } from '../../redux';
+
+export default function Filer() {
+  const dispatch = useDispatch();
+  const onChange = e => {
+    const input = e.currentTarget.value;
+    dispatch(changeFilter(input));
+  };
   return (
     <label className={css.contact__lable}>
       Find contacts by name
       <input
         className={css.contact__input}
-        value={value}
         onChange={onChange}
         type="text"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
